@@ -1,0 +1,25 @@
+lesson: TWG-1
+voice_profile: narrator
+style: calm technical mentor
+slides:
+  - slide: 01
+    title: Как работает каждый узел
+    text: slide01.txt
+    ssml: slide01.ssml
+    audio: audio/slide01.mp3
+    target_duration_sec: 38-45
+    qa: pending
+  - slide: 02
+    title: Ключевые мысли
+    text: slide02.txt
+    ssml: slide02.ssml
+    audio: audio/slide02.mp3
+    target_duration_sec: 35-42
+    qa: pending
+  - slide: 03
+    title: Итоги урока
+    text: slide03.txt
+    ssml: slide03.ssml
+    audio: audio/slide03.mp3
+    target_duration_sec: 30-36
+    qa: pending
