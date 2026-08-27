@@ -1,0 +1,48 @@
+КОМАНДЫ ДЛЯ ТЕРМИНАЛА VS CODE — POWERSHELL
+
+1. Распакуйте архив и откройте его папку в VS Code.
+
+2. Откройте: Терминал → Создать терминал.
+
+3. Выполните команды по порядку:
+
+py -m venv .venv
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+Copy-Item .env.example .env
+notepad .env
+
+4. В открывшемся .env вставьте YANDEX_API_KEY и YANDEX_FOLDER_ID,
+   сохраните файл и закройте Блокнот.
+
+5. Сначала проверьте один слайд:
+
+python synthesize_yandex.py --only 1 --overwrite
+
+6. Если slide01.mp3 звучит правильно, создайте все 20 файлов:
+
+python synthesize_yandex.py --overwrite
+
+Готовые файлы появятся в папке output:
+slide01.mp3 ... slide20.mp3
+TWG_AERO_4-6_AUDIO_20.zip
+
+ПОВТОРНЫЙ ЗАПУСК БЕЗ ПЕРЕЗАПИСИ ГОТОВЫХ ФАЙЛОВ
+
+python synthesize_yandex.py
+
+ПЕРЕЗАПИСАТЬ ТОЛЬКО ОТДЕЛЬНЫЕ СЛАЙДЫ
+
+python synthesize_yandex.py --only 4,8,17 --overwrite
+
+ПЕРЕЗАПИСАТЬ ДИАПАЗОН СЛАЙДОВ
+
+python synthesize_yandex.py --only 11-20 --overwrite
+
+ИЗМЕНИТЬ СКОРОСТЬ ТОЛЬКО ДЛЯ ТЕКУЩЕГО ЗАПУСКА
+
+python synthesize_yandex.py --speed 0.95 --overwrite
+
+Важно: файл .env содержит секретный API-ключ. Не отправляйте его другим людям.
